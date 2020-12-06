@@ -1,5 +1,4 @@
 function assertTrue(cond, msg) {
-  this.asserts++;
   if (!cond) {
     throw new Error(msg || `Condition not true: ${cond}`);
   }
@@ -7,7 +6,6 @@ function assertTrue(cond, msg) {
 }
 
 function assertEquals(expected, actual, msg) {
-  this.asserts++;
   if (expected !== actual) {
     throw new Error(msg || `expected(${expected}) != actual(${actual}).`);
   }
