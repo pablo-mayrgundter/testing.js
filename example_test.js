@@ -1,4 +1,4 @@
-import Testing from './testing.mjs';
+import Testing from './testing.js';
 
 const tests = new Testing();
 tests.add('Test assertEquals', () => {
