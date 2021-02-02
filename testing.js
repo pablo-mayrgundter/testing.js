@@ -44,6 +44,7 @@ class Testing {
   constructor() {
     this.tests = [];
     this.asserts = 0;
+    this.skipped = 0;
   }
 
 
@@ -62,7 +63,11 @@ class Testing {
         fail++;
       }
     }
-    console.log(`TOTAL OK: ${ok}, FAIL: ${fail}, ASSERTS: ${this.asserts}`);
+    if (this.skipped > 0) {
+      console.log(`TOTAL OK: ${ok}, FAIL: ${fail}, SKIPPED: ${this.skipped}, ASSERTS: ${this.asserts}`);
+    } else {
+      console.log(`TOTAL OK: ${ok}, FAIL: ${fail}, ASSERTS: ${this.asserts}`);
+    }
   }
 
 
@@ -71,6 +76,11 @@ class Testing {
       this.tests.length = 0;
     }
     this.tests.push([description, fn]);
+  }
+
+
+  skip(description, fn, onlyThisOne = false) {
+    this.skipped++;
   }
 
 
