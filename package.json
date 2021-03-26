@@ -1,0 +1,26 @@
+{
+  "name": "@pablo-mayrgundter/testing.js",
+  "version": "1.0.0",
+  "description": "Unit testing support for javascript.",
+  "main": "testing.js",
+  "type": "module",
+  "scripts": {
+    "test": "node example_test.js",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pablo-mayrgundter/testing.js.git"
+  },
+  "keywords": [
+    "javascript",
+    "css",
+    "html",
+    "calm"
+  ],
+  "author": "Pablo Mayrgundter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pablo-mayrgundter/testing.js/issues"
+  },
+  "homepage": "https://github.com/pablo-mayrgundter/testing.js#readme"
+}
