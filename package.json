@@ -5,7 +5,7 @@
   "main": "testing.js",
   "type": "module",
   "scripts": {
-    "test": "node example_test.js",
+    "test": "node example_test.js"
   },
   "repository": {
     "type": "git",
@@ -15,7 +15,8 @@
     "javascript",
     "css",
     "html",
-    "calm"
+    "testing",
+    "unit testing"
   ],
   "author": "Pablo Mayrgundter",
   "license": "ISC",
