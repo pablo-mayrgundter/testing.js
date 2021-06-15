@@ -3,9 +3,12 @@ Unit testing support for javascript.
 
 example_test.js:
 ```javascript
-const testing = require('./testing.js');
+import Testing from '@pablo-mayrgundter/testing.js/testing.js';
 
-const tests = new testing();
+// Alternatively, just import asserts as needed, e.g.:
+// import {assertEquals, assertFinite} from '@pablo-mayrgundter/testing.js/testing.js';
+
+const tests = new Testing();
 tests.add('Test assertEquals', () => {
   tests.assertEquals('foo', 'foo', 'Expected foo == foo');
 });
