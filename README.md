@@ -43,4 +43,5 @@ vi package.json
 # Then build dist:
 npx rollup -c
 npm publish
+# Follow-up with git checkin
 ```
