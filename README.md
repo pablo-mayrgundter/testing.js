@@ -33,3 +33,14 @@ FAIL: Failing test  Error: Erroneously expect foo == bar
     at Function.Module.runMain (module.js:684:10)
 TOTAL OK: 1, FAIL: 1
 ```
+
+# Build
+```
+# Test before build
+npm run test
+# If all OK, increment version:
+vi package.json
+# Then build dist:
+npx rollup -c
+npm publish
+```
