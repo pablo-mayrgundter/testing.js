@@ -154,25 +154,16 @@ class Testing {
 
   assertDefined(num, msg) {
     this.asserts++;
-    assertDefined(num, msg);
+    assertDefined(num);
   }
 
 
   assertUndefined(num, msg) {
     this.asserts++;
-    assertUndefined(num, msg);
+    assertUndefined(num);
   }
 }
 
-
-export {
-  Testing as default,
-  assertTrue,
-  assertFalse,
-  assertEquals,
-  assertFail,
-  assertFinite,
-  assertInRange,
-  assertDefined,
-  assertUndefined
-}
+export default Testing;
+export { assertDefined, assertEquals, assertFail, assertFalse, assertFinite, assertInRange, assertTrue, assertUndefined };
+//# sourceMappingURL=testing.module.js.map

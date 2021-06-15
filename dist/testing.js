@@ -1,8 +1,20 @@
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
 function assertTrue(cond, msg) {
   if (!cond) {
-    throw new Error(msg || `Condition not true: ${cond}`);
+    throw new Error(msg || `Condition must be true: ${cond}`);
   }
   return true;
+}
+
+
+function assertFalse(cond, msg) {
+  if (cond) {
+    throw new Error(msg || `Condition must be false: ${cond}`);
+  }
+  return false;
 }
 
 
@@ -15,6 +27,9 @@ function assertEquals(expected, actual, msg) {
 
 
 function assertFail(func, msg) {
+  if (typeof func !== 'function') {
+    throw new Error('Expected test condition to be a function, got: ' + (typeof func));
+  }
   try {
     func();
   } catch (e) {
@@ -40,10 +55,28 @@ function assertInRange(num, min, max, msg) {
   return num;
 }
 
+
+function assertDefined(val) {
+  if (typeof val == 'undefined') {
+    throw new Error('Value undefined')
+  }
+  return val;
+}
+
+
+function assertUndefined(val) {
+  if (typeof val !== 'undefined') {
+    throw new Error('Value defined')
+  }
+  return val;
+}
+
+
 class Testing {
   constructor() {
     this.tests = [];
     this.asserts = 0;
+    this.skipped = 0;
   }
 
 
@@ -62,7 +95,11 @@ class Testing {
         fail++;
       }
     }
-    console.log(`TOTAL OK: ${ok}, FAIL: ${fail}, ASSERTS: ${this.asserts}`);
+    if (this.skipped > 0) {
+      console.log(`TOTAL OK: ${ok}, FAIL: ${fail}, SKIPPED: ${this.skipped}, ASSERTS: ${this.asserts}`);
+    } else {
+      console.log(`TOTAL OK: ${ok}, FAIL: ${fail}, ASSERTS: ${this.asserts}`);
+    }
   }
 
 
@@ -74,9 +111,20 @@ class Testing {
   }
 
 
+  skip(description, fn, onlyThisOne = false) {
+    this.skipped++;
+  }
+
+
   assertTrue(cond, msg) {
     this.asserts++;
     assertTrue(cond, msg);
+  }
+
+
+  assertFalse(cond, msg) {
+    this.asserts++;
+    assertFalse(cond, msg);
   }
 
 
@@ -106,13 +154,27 @@ class Testing {
       throw new Error(msg || 'Function should throw error.');
     } catch (e) { /* expected */ }
   }
+
+
+  assertDefined(num, msg) {
+    this.asserts++;
+    assertDefined(num);
+  }
+
+
+  assertUndefined(num, msg) {
+    this.asserts++;
+    assertUndefined(num);
+  }
 }
 
-export {
-  Testing as default,
-  assertTrue,
-  assertEquals,
-  assertFail,
-  assertFinite,
-  assertInRange
-}
+exports.assertDefined = assertDefined;
+exports.assertEquals = assertEquals;
+exports.assertFail = assertFail;
+exports.assertFalse = assertFalse;
+exports.assertFinite = assertFinite;
+exports.assertInRange = assertInRange;
+exports.assertTrue = assertTrue;
+exports.assertUndefined = assertUndefined;
+exports.default = Testing;
+//# sourceMappingURL=testing.js.map

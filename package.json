@@ -1,9 +1,10 @@
 {
   "name": "@pablo-mayrgundter/testing.js",
-  "version": "1.0.0",
+  "version": "1.1",
   "description": "Unit testing support for javascript.",
-  "main": "testing.js",
+  "main": "dist/testing.js",
   "type": "module",
+  "module": "dist/testing.module.js",
   "scripts": {
     "test": "node example_test.js"
   },
