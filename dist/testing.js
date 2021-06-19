@@ -56,17 +56,17 @@ function assertInRange(num, min, max, msg) {
 }
 
 
-function assertDefined(val) {
+function assertDefined(val, msg) {
   if (typeof val == 'undefined') {
-    throw new Error('Value undefined')
+    throw new Error(msg || 'Value undefined')
   }
   return val;
 }
 
 
-function assertUndefined(val) {
+function assertUndefined(val, msg) {
   if (typeof val !== 'undefined') {
-    throw new Error('Value defined')
+    throw new Error(msg || 'Value defined')
   }
   return val;
 }
@@ -158,13 +158,13 @@ class Testing {
 
   assertDefined(num, msg) {
     this.asserts++;
-    assertDefined(num);
+    assertDefined(num, msg);
   }
 
 
   assertUndefined(num, msg) {
     this.asserts++;
-    assertUndefined(num);
+    assertUndefined(num, msg);
   }
 }
 
