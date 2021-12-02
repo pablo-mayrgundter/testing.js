@@ -45,6 +45,7 @@ npm run test
 vi package.json
 # Then build dist:
 npx rollup -c
-npm publish
+# This pushes to https://www.npmjs.com/package/@pablo-mayrgundter/testing.js
+npm publish --access public
 # Follow-up with git checkin
 ```
